@@ -7,6 +7,10 @@ keys.addEventListener("click", event => {
     board.addValue(id, selected)
 })
 
+document.querySelector('.newGame').addEventListener('click', event => {
+    board.newGame()
+})
+
 const board = {
     turns: '1',
     values: {},
@@ -75,7 +79,18 @@ const board = {
         } else if (this.turns % 2 === 1) {
             document.querySelector('.results').innerText = 'Player 2 wins!'
         }
+    },
+
+    newGame() {
+        this.turns = 1
+        this.values = {}
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById(i).textContent = ''
+            document.getElementById(i).style.backgroundColor = '#fff'
+        }
 
     }
 
 }
+
+
