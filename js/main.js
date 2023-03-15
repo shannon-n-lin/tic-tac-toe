@@ -8,31 +8,31 @@ keys.addEventListener("click", event => {
 })
 
 const board = {
-    turn: '1',
+    turns: '1',
     values: {},
 
     addValue(id, selected) {
-        // check if id already has a value
+        // stop if id already has a value
         if (this.values[id]) {
             return
         } else {
             // for player 1, add value of X
-            if (this.turn % 2 === 1) {
+            if (this.turns % 2 === 1) {
                 this.values[id] = 'X'
                 console.log(`${id}: ${this.values[id]}`)
-                this.mark(id, selected)
+                this.markSquare(id, selected)
             // for player 2, add value of O
             } else {
                 this.values[id] = 'O'
                 console.log(`${id}: ${this.values[id]}`)
-                this.mark(id, selected)
+                this.markSquare(id, selected)
             }
         }
     },
 
     markSquare(id, selected) {
         // player 1 marks square with X
-        if (this.turn % 2 === 1) {
+        if (this.turns % 2 === 1) {
             selected.textContent = 'X'
             selected.style.backgroundColor = '#f47a3b'
             selected.style.color = '#f3b2ce'
@@ -42,7 +42,7 @@ const board = {
             selected.style.backgroundColor = '#f3b2ce'
             selected.style.color = '#f47a3b'
         }
-        this.turn++
+        this.turns++
         this.checkWin()
     },
 
@@ -50,21 +50,32 @@ const board = {
         // check horizontal
         for (let i = 1; i <= 7; i += 3) {
             if (this.values[i] && this.values[i] === this.values[i+1] && this.values[i] === this.values[i+2]) {
-                document.querySelector('.results').innerText = 'winner!'
+                this.declareWin()
             }  
         }
         // check vertical
         for (let i = 1; i <= 3; i++) {
             if (this.values[i] && this.values[i] === this.values[i+3] && this.values[i] === this.values[i+6]) {
-                document.querySelector('.results').innerText = 'winner!'
+                this.declareWin()
             }  
         }
         // check top-left to bottom-right diagonal
         if (this.values[1] && this.values[1] === this.values[5] && this.values[1] === this.values[9]) {
-            document.querySelector('.results').innerText = 'winner!'
+            this.declareWin()
+        }
         // check top-right to bottom-left diagonal
-        } else if (this.values[3] && this.values[3] === this.values[5] && this.values[3] === this.values[7]) {
-            document.querySelector('.results').innerText = 'winner!'
+        if (this.values[3] && this.values[3] === this.values[5] && this.values[3] === this.values[7]) {
+            this.declareWin()
         }
     },
+
+    declareWin() {
+        if (this.turns % 2 === 0) {
+            document.querySelector('.results').innerText = 'Player 1 wins!'
+        } else if (this.turns % 2 === 1) {
+            document.querySelector('.results').innerText = 'Player 2 wins!'
+        }
+
+    }
+
 }
