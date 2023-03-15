@@ -21,6 +21,19 @@ div {
     font-size: 6rem;
     text-align: center;
     line-height: 150px;
+    border-radius: 15px;
+}
+div:hover {
+    background-color: #f1f6b2;
+}
+button {
+    padding: 15px 20px;
+    border: 0px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.newGame {
+    background-color: #dce46a;
 }
 
 /******************************************
@@ -39,7 +52,9 @@ div {
     background-color: #fff;
     margin: 10px;
 }
-
+.options {
+    margin-left: 10px;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
