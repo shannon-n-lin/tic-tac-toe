@@ -15,6 +15,7 @@ body {
 }
 h1 {
     text-transform: uppercase;
+    margin-left: 10px;
 }
 div {
     font-size: 6rem;
@@ -53,4 +54,3 @@ div:nth-of-type(2) {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-a
