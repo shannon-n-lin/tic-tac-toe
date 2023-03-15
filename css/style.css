@@ -11,18 +11,46 @@ html {
 body {
     margin-left: 40px;
     margin-top: 40px;
+    background-color: #e4f2f2;
+}
+h1 {
+    text-transform: uppercase;
+}
+div {
+    font-size: 6rem;
+    text-align: center;
+    line-height: 150px;
 }
 
 /******************************************
 /* LAYOUT
 /*******************************************/
+.board {
+    height: 510px;
+    width: 510px;
+    display: flex;
+    flex-flow: row wrap;
+    /* border: 1px solid gray; */
+}
+.board > * {
+    height: 150px;
+    width: 150px;
+    background-color: #fff;
+    margin: 10px;
+}
 
 
-
-
-
+div:nth-of-type(1) {
+    background-color: #f47a3b;
+    color: #f3b2ce;
+}
+div:nth-of-type(2) {
+    background-color: #f3b2ce;
+    color: #f47a3b
+}
 
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+a
