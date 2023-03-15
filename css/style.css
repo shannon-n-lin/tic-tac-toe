@@ -41,16 +41,6 @@ div {
 }
 
 
-div:nth-of-type(1) {
-    background-color: #f47a3b;
-    color: #f3b2ce;
-}
-div:nth-of-type(2) {
-    background-color: #f3b2ce;
-    color: #f47a3b
-}
-
-
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
